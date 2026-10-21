@@ -90,6 +90,27 @@ a {
   outline-offset: 2px;
 }
 
+/* La cabecera es fija: evita que tape el destino de un ancla o el foco. */
+:target,
+:focus {
+  scroll-margin-top: 5rem;
+}
+
+.enlace-salto {
+  position: absolute;
+  top: 0;
+  left: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  color: var(--color-blanco);
+  background: var(--color-tomate);
+  transform: translateY(-120%);
+}
+
+.enlace-salto:focus {
+  transform: translateY(0);
+  z-index: 20;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
