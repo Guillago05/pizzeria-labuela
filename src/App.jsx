@@ -1,6 +1,9 @@
 import Cabecera from './components/Cabecera'
 import Portada from './components/Portada'
+import DatosRapidos from './components/DatosRapidos'
 import Carta from './components/Carta'
+import Contacto from './components/Contacto'
+import Pie from './components/Pie'
 
 function App() {
   return (
@@ -11,13 +14,11 @@ function App() {
       <Cabecera />
       <main id="contenido">
         <Portada />
+        <DatosRapidos />
         <Carta />
-        {/* Sección provisional: se sustituirá por el contacto real. */}
-        <section id="contacto">
-          <h2>Contacto</h2>
-          <p>Próximamente.</p>
-        </section>
+        <Contacto />
       </main>
+      <Pie />
     </>
   )
 }

@@ -3,7 +3,7 @@
   top: 0;
   z-index: 10;
   background: var(--color-blanco);
-  border-bottom: 2px solid var(--color-terracota);
+  border-bottom: var(--borde-seccion);
 }
 
 .cabecera__barra {
@@ -64,6 +64,14 @@
 
 .cabecera__enlace:hover {
   text-decoration: underline;
+}
+
+/* Sección actual: subrayado grueso en rojo; el estado no depende solo del color (aria-current lo anuncia). */
+.cabecera__enlace[aria-current] {
+  color: var(--color-tomate);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.35em;
 }
 
 @media (min-width: 48rem) {

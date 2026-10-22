@@ -6,7 +6,7 @@ export const negocio = {
   direccion: 'Plaza de Castilla-León, 9, 28523, Rivas Vaciamadrid, Madrid',
   googleMaps: 'https://maps.app.goo.gl/UmesGuZmDuTk8Tx98',
   servicios: ['Consumo en el local', 'Pedidos a domicilio'],
-  // Los enlaces directos de las plataformas están pendientes de facilitar: no inventar URLs.
+  // PENDIENTE: URLs directas de Just Eat, Uber Eats y Glovo (no facilitadas). Añadirlas aquí, sin inventarlas.
   canalesPedido: ['Teléfono', 'Just Eat', 'Uber Eats', 'Glovo'],
 }
 

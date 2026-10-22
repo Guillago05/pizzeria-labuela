@@ -1,0 +1,41 @@
+/* Franja con lo que más se busca desde el móvil: llamar, llegar y saber cuándo está cerrado. */
+.datos-rapidos {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-3) var(--space-2);
+  list-style: none;
+  background: var(--color-blanco);
+  border-bottom: var(--borde-seccion);
+}
+
+.datos-rapidos li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.datos-rapidos__etiqueta {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.datos-rapidos__valor {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.datos-rapidos a.datos-rapidos__valor {
+  display: inline-block;
+  padding: 0.25rem 0;
+}
+
+@media (min-width: 48rem) {
+  .datos-rapidos {
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: var(--space-4);
+    text-align: center;
+  }
+}

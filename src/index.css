@@ -1,3 +1,20 @@
+/* Solo el subconjunto latino (cubre todo el español). Licencia: SIL OFL 1.1, ver public/fonts/LEEME.txt */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/lora-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/nunito-sans-latin.woff2') format('woff2');
+}
+
 :root {
   --color-tomate: #8e3025;
   --color-crema: #f4e7ce;
@@ -13,6 +30,12 @@
   --space-3: 1.5rem;
   --space-4: 2.5rem;
   --radius: 0.5rem;
+
+  /* Líneas decorativas: cada una tiene un solo papel. */
+  --borde-seccion: 2px solid var(--color-terracota); /* separa bloques de la página */
+  --borde-titulo: 3px double var(--color-terracota); /* subraya títulos de categoría */
+  --borde-fino: 1px solid var(--color-terracota); /* filas, tarjetas y cajas */
+  --borde-punteado: 2px dotted var(--color-terracota); /* puntos guía y filas del horario */
 }
 
 *,
@@ -44,8 +67,51 @@ img {
   height: auto;
 }
 
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
 a {
   color: var(--color-tomate);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Superficies del navegador tematizadas con la paleta. */
+::selection {
+  color: var(--color-blanco);
+  background: var(--color-tomate);
+}
+
+html {
+  scrollbar-color: var(--color-terracota) var(--color-crema);
+}
+
+/* Franja decorativa de dos hiladas de ladrillo, solo con CSS. Altura = 2 × --ladrillo-alto. */
+.franja-ladrillo {
+  --ladrillo-ancho: 2.5rem;
+  --ladrillo-alto: 0.875rem;
+  --junta: 2px;
+  height: calc(var(--ladrillo-alto) * 2);
+  background-color: var(--color-terracota);
+  background-image:
+    linear-gradient(90deg, var(--color-marron) var(--junta), transparent var(--junta)),
+    linear-gradient(90deg, var(--color-marron) var(--junta), transparent var(--junta)),
+    linear-gradient(var(--color-marron) var(--junta), transparent var(--junta));
+  background-size:
+    var(--ladrillo-ancho) var(--ladrillo-alto),
+    var(--ladrillo-ancho) var(--ladrillo-alto),
+    100% var(--ladrillo-alto);
+  background-position:
+    0 0,
+    calc(var(--ladrillo-ancho) / 2) var(--ladrillo-alto),
+    0 0;
+  background-repeat: repeat-x, repeat-x, repeat-y;
 }
 
 .boton {
@@ -60,6 +126,9 @@ a {
   background: var(--color-tomate);
   border: 2px solid var(--color-tomate);
   border-radius: var(--radius);
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out;
 }
 
 .boton:hover {
@@ -98,7 +167,7 @@ a {
 
 .enlace-salto {
   position: absolute;
-  top: 0;
+  top: var(--space-1);
   left: var(--space-1);
   padding: var(--space-1) var(--space-2);
   color: var(--color-blanco);

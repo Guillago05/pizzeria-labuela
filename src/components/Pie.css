@@ -1,0 +1,30 @@
+/* Pie oscuro: cierra la página con el mismo marrón y la misma franja que la portada. */
+.pie {
+  color: var(--color-crema);
+  text-align: center;
+  background: var(--color-marron);
+}
+
+.pie__contenido {
+  padding: var(--space-4) var(--space-2);
+}
+
+.pie p {
+  margin: 0 0 var(--space-1);
+}
+
+.pie__nombre {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.pie a {
+  display: inline-block;
+  padding: 0.25rem 0;
+  color: var(--color-crema);
+}
+
+.pie :focus-visible {
+  outline-color: var(--color-crema);
+}

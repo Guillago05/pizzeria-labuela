@@ -1,18 +1,25 @@
+/* Portada oscura (marrón) con botones claros: el rojo tomate no destaca sobre el marrón. */
 .portada {
-  padding: var(--space-4) var(--space-2);
+  color: var(--color-crema);
   text-align: center;
-  border-bottom: 2px solid var(--color-terracota);
+  background: var(--color-marron);
+}
+
+.portada__contenido {
+  padding: var(--space-4) var(--space-2) 3.5rem;
 }
 
 .portada h1 {
   margin: 0 0 var(--space-2);
-  font-size: 2.25rem;
+  font-size: clamp(2.5rem, 9vw, 4.5rem);
+  color: var(--color-crema);
 }
 
 .portada__texto {
-  max-width: 36rem;
+  max-width: 34rem;
   margin: 0 auto var(--space-3);
   font-size: 1.125rem;
+  text-wrap: balance;
 }
 
 .portada__acciones {
@@ -24,18 +31,75 @@
   margin: 0 auto;
 }
 
-@media (min-width: 48rem) {
-  .portada {
-    padding: 5rem var(--space-3);
-  }
+.portada .boton {
+  color: var(--color-marron);
+  background: var(--color-crema);
+  border-color: var(--color-crema);
+}
 
-  .portada h1 {
-    font-size: 3rem;
+.portada .boton:hover {
+  background: var(--color-blanco);
+  border-color: var(--color-blanco);
+}
+
+.portada .boton--secundario {
+  color: var(--color-crema);
+  background: transparent;
+}
+
+.portada .boton--secundario:hover {
+  color: var(--color-marron);
+  background: var(--color-crema);
+  border-color: var(--color-crema);
+}
+
+.portada :focus-visible {
+  outline-color: var(--color-crema);
+}
+
+/* Con foto: en móvil va debajo del texto; en escritorio, a su derecha. */
+.portada__foto {
+  display: block;
+  width: 100%;
+  max-width: 32rem;
+  aspect-ratio: 4 / 3;
+  margin: var(--space-3) auto 0;
+  object-fit: cover;
+  border: 3px solid var(--color-terracota);
+  border-radius: var(--radius);
+}
+
+@media (min-width: 48rem) {
+  .portada__contenido {
+    padding: 6rem var(--space-3) 5rem;
   }
 
   .portada__acciones {
     flex-direction: row;
     justify-content: center;
     max-width: none;
+  }
+
+  .portada--con-foto .portada__contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: 72rem;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .portada--con-foto .portada__texto {
+    margin-left: 0;
+  }
+
+  .portada--con-foto .portada__acciones {
+    justify-content: flex-start;
+  }
+
+  .portada--con-foto .portada__foto {
+    max-width: none;
+    margin: 0;
   }
 }
